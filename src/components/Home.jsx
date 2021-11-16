@@ -29,7 +29,7 @@ const Home = (props) => {
                             <th style= {{textAlign: 'center'}}>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style= {selectAll ? {backgroundColor: 'grey'}: null}>
                         {props.currentItems.filter(item => {
                             const name = item.name.toLowerCase().includes(search.toLowerCase())
                             const email = item.email.toLowerCase().includes(search.toLowerCase())
@@ -41,9 +41,9 @@ const Home = (props) => {
                                     <td>
                                         <input className= "form-check-input" type="checkbox" checked= {selectAll ? "selectAll" : null} />
                                     </td>
-                                    <td style= {selectAll ? {backgroundColor: 'grey'}: null}>{item.name}</td>
-                                    <td style= {selectAll ? {backgroundColor: 'grey'}: null}>{item.email}</td>
-                                    <td style= {selectAll ? {backgroundColor: 'grey'}: null}>{item.role}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.role}</td>
                                     <td style= {{textAlign: 'center'}}>
                                         <Link to={`/edit/${item.id}`}>
                                             <EditIcon style= {{margin: '10px'}} />
